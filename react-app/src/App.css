@@ -2,6 +2,21 @@
   text-align: center;
 }
 
+a.up-navbar {
+  color: #f94d49;
+}
+
+.menu-list {
+  transition: transform .2s;
+  text-decoration: none;
+  color: black;
+}
+
+.menu-list:hover {
+  text-decoration: none;
+  color: #f94d49;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -32,6 +47,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
