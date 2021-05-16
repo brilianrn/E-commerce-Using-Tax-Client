@@ -15,16 +15,18 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="container mt-5">
-      {loading ? <Loading /> :
-        <div class="row row-cols-1 row-cols-md-3 g-4">
-          {items.map(item => {
-            return (
-              <Items key={item.id} item={item} />
-            )
-          })}
-        </div>
-      }
-    </div>
+    <>
+      <div className="container mt-5 mb-5">
+        {loading ? <Loading /> :
+          <div class="row row-cols-1 row-cols-md-3 g-4">
+            {items.map(item => {
+              return (
+                <Items key={item.id} item={item} />
+              )
+            })}
+          </div>
+        }
+      </div><hr />
+    </>
   )
 }

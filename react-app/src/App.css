@@ -2,6 +2,16 @@
   text-align: center;
 }
 
+#items {
+  transition: transform .2s;
+  /* Animation */
+}
+
+#items:hover {
+  transform: scale(0.95);
+  /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
 a.up-navbar {
   color: #f94d49;
 }
