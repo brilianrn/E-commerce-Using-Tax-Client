@@ -27,18 +27,18 @@ export default function Navbar() {
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <ul class="nav justify-content-center">
-            <NavLink exact to='/' className='nav-item menu-list' activeClassName='up-navbar'>
-              <a href='#' class="nav-link text text-dark">Home</a>
+            <NavLink exact to='/' style={{ marginRight: '10px' }} className='nav-item menu-list' activeClassName='up-navbar'>
+              Home
             </NavLink>
             {/* <NavLink to='/my-profile' className='nav-item menu-list' activeClassName='up-navbar'>
               <a href='#' class="nav-link text text-dark">MyProfile</a>
             </NavLink> */}
             <NavLink to='/my-cart' className='nav-item menu-list' activeClassName='up-navbar'>
-              <a href='#' class="nav-link text text-dark">MyCart</a>
+              MyCart
             </NavLink>
-            <NavLink to='/checkout' className='nav-item menu-list' activeClassName='up-navbar'>
+            {/* <NavLink to='/checkout' className='nav-item menu-list' activeClassName='up-navbar'>
               <a href='#' class="nav-link text text-dark">Checkout</a>
-            </NavLink>
+            </NavLink> */}
           </ul>
         </div>
         <div>
