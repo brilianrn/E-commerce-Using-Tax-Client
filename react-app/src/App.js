@@ -5,19 +5,22 @@ import {
   Route,
   Switch
 } from 'react-router-dom';
-import { Navbar } from './components';
+import { Footer, Navbar } from './components';
 import {
+  Cart,
   Detail,
-  Home
+  Home,
+  Login
 } from './pages';
 
 function App() {
   return (
     <Router>
-      <Navbar />
       <Switch>
         <Route path='/item-detail/:itemId'>
+          <Navbar />
           <Detail />
+          <Footer />
         </Route>
         <Route path='/my-profile/:userId'>
           {/* Profile */}
@@ -25,11 +28,18 @@ function App() {
         <Route path='/register'>
           {/* Register */}
         </Route>
+        <Route path='/my-cart'>
+          <Navbar />
+          <Cart />
+          <Footer />
+        </Route>
         <Route path='/login'>
-          {/* Login */}
+          <Login />
         </Route>
         <Route path='/'>
+          <Navbar />
           <Home />
+          <Footer />
         </Route>
       </Switch>
     </Router>

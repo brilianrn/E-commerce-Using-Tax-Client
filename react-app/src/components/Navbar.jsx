@@ -1,18 +1,25 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 export default function Navbar() {
-  function changePage(params) {
+  const history = useHistory();
 
+  function changePage({ event, destination }) {
+    event.preventDefault();
+    history.push('/' + destination);
   }
 
-  function logout(params) {
-
+  function logout(event) {
+    event.preventDefault();
+    localStorage.removeItem('name');
+    localStorage.removeItem('access_token');
+    history.push('/login');
   }
   return (
     <nav class="navbar navbar-expand-lg navbar-light bg-light shadow">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">
+        <a onClick={(event) => { changePage({ event, destination: '' }) }} class="navbar-brand" href="#">
           <img style={{ width: '100px' }} src="https://www.thegeographeronline.net/uploads/2/6/6/2/26629356/published/the-challenge.png?1530071546" alt="logo" />
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -23,9 +30,9 @@ export default function Navbar() {
             <NavLink exact to='/' className='nav-item menu-list' activeClassName='up-navbar'>
               <a href='#' class="nav-link text text-dark">Home</a>
             </NavLink>
-            <NavLink to='/my-profile' className='nav-item menu-list' activeClassName='up-navbar'>
+            {/* <NavLink to='/my-profile' className='nav-item menu-list' activeClassName='up-navbar'>
               <a href='#' class="nav-link text text-dark">MyProfile</a>
-            </NavLink>
+            </NavLink> */}
             <NavLink to='/my-cart' className='nav-item menu-list' activeClassName='up-navbar'>
               <a href='#' class="nav-link text text-dark">MyCart</a>
             </NavLink>
@@ -38,7 +45,7 @@ export default function Navbar() {
           {!localStorage.name ? <></> :
             <>
               <i>Hi,</i>
-              <a href="#" className='mr-2 ml-1 badge rounded-pill text-light' style={{ fontSize: '15px', backgroundColor: '#f94d49' }} onClick={(event) => { changePage({ event, destination: 'my-profile' }) }}>{localStorage.name}</a>
+              <a href="#" className='mr-2 ml-1 badge rounded-pill text-light' style={{ fontSize: '15px', backgroundColor: '#f94d49', textDecoration: 'none', marginRight: '10px', marginLeft: '5px' }} onClick={(event) => { changePage({ event, destination: 'my-profile' }) }}>{localStorage.name}</a>
             </>
           }
           {localStorage.access_token ? <button className="btn btn-outline-danger my-2 my-sm-0 mr-4" type="submit" onClick={(event) => { logout(event) }}>Logout</button> :
@@ -46,7 +53,7 @@ export default function Navbar() {
           }
         </div>
       </div>
-    </nav>
+    </nav >
   )
 }
 
