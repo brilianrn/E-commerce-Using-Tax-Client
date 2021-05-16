@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import baseUrl from '../api';
 import { deleteCartAsync, plusAmountAsync } from '../store/actions/cartAction';
 import { useHistory } from 'react-router-dom';
-import { Loading } from '.';
 
 let num = 0;
 let flag = num++;
@@ -78,6 +77,7 @@ export default function Carts(props) {
 
   function checkout({ event }) {
     event.preventDefault();
+    console.log(checkoutData);
   }
 
   return (
@@ -89,9 +89,7 @@ export default function Carts(props) {
           </form>
         </td>
         <td>
-          <a href="#" className='text text-dark'>
-            {cart.name}
-          </a>
+          {cart.name}
         </td>
         <td>
           <div className='text text-center'>
